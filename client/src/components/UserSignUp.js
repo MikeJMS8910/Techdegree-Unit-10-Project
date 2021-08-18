@@ -26,7 +26,7 @@ export default class UserSignUp extends Component {
       errors,
     } = this.state;
 
-    return (
+    return ( //return the html to the page
       <div className="bounds">
         <div className="grid-33 centered signin">
           <h1>Sign Up</h1>
@@ -75,7 +75,7 @@ export default class UserSignUp extends Component {
     );
   }
 
-  change = (event) => {
+  change = (event) => { //change event
     const name = event.target.name;
     const value = event.target.value;
 
@@ -86,7 +86,7 @@ export default class UserSignUp extends Component {
     });
   }
 
-  finishSubmit = (user) => {
+  finishSubmit = (user) => { //finished submitting the user info
     
     if(user !== null && typeof(user) !== 'undefined') {
       const { context } = this.props;
@@ -103,7 +103,7 @@ export default class UserSignUp extends Component {
     }
   }
 
-  handleError = (error) => {
+  handleError = (error) => { //error handling
     if(error.isAxiosError) {
       if(typeof (error.response) != 'undefined') {
         if(error.response.status === 400) {

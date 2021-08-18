@@ -108,7 +108,7 @@ export default class UpdateCourse extends Component {
       this.props.history.push(`/courses/${this.props.match.params.id}`);
   }
 
-  handleSubmit = async (event) => {
+  handleSubmit = async (event) => { //handles the submit
 
     const { context } = this.props;
     const id = this.props.match.params.id;    
@@ -124,11 +124,11 @@ export default class UpdateCourse extends Component {
     
   }
   
-  handleCancleClick = (event) => {
+  handleCancleClick = (event) => { //when the user clicks cancel
     this.props.history.push(`/courses/${this.props.match.params.id}`);
   }
 
-  change = (event) => {
+  change = (event) => { //handles teh change events
     const name = event.target.name;
     const value = event.target.value;
 

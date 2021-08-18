@@ -12,7 +12,7 @@ export default class CreateCourse extends Component {
     errors: []
   }
 
-  finishSubmit = () => {
+  finishSubmit = () => { //one it is submited
     
     this.setState(() => 
     {
@@ -29,7 +29,7 @@ export default class CreateCourse extends Component {
 
   }
 
-  handleError = (error) => {
+  handleError = (error) => { //error handling
     if(error.isAxiosError) {
       if(error.response) {
         if(error.response.status >= 400) {
@@ -47,7 +47,7 @@ export default class CreateCourse extends Component {
     }
   }
 
-  handleSubmit = async (event) => {
+  handleSubmit = async (event) => { //handles submit
 
     const { context } = this.props; 
    
@@ -62,11 +62,11 @@ export default class CreateCourse extends Component {
   }
   
 
-  handleCancleClick = (event) => {
+  handleCancleClick = (event) => { //when the user clicks cancle
     this.props.history.push('/courses');
   }
 
-  change = (event) => {
+  change = (event) => { //changes the valeus
     const name = event.target.name;
     const value = event.target.value;
 
@@ -77,7 +77,7 @@ export default class CreateCourse extends Component {
     });
   }
 
-  render() {
+  render() { //render the results
     let user = 'default';
     if(this.props.context.authenticatedUser) {
       user = this.props.context.authenticatedUser.firstName + ' ' + this.props.context.authenticatedUser.lastName;
@@ -91,7 +91,7 @@ export default class CreateCourse extends Component {
       errors
     } = this.state;
     
-    return (
+    return ( //return the html to the page
           <div>
           <div id="root">
             <div>

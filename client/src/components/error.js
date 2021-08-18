@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 //error handling
 export default class Forbidden extends Component {
 
-    render() { 
+    render() {  //renders the error
         return (
         <div class="bounds">
             <h1>Internal Server Error</h1>

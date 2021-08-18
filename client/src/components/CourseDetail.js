@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
 
-export default class CourseDetails extends Component {
+export default class CourseDetail extends Component {
 
   //state of the user and courses
   state = {
@@ -27,7 +27,7 @@ export default class CourseDetails extends Component {
     }
   }
 
-  handleError = (error) => {
+  handleError = (error) => { //error handling
     if(error.isAxiosError) {
       if(error.response) {
         if(error.response.status === 401) {
@@ -51,7 +51,7 @@ export default class CourseDetails extends Component {
   }
 
 
-  updateCourseDetails = (response) => {
+  updateCourseDetails = (response) => { //updates the course
 
    const { context } = this.props;
    const authenticatedUser = context.authenticatedUser;
@@ -79,7 +79,7 @@ export default class CourseDetails extends Component {
     }
   }
 
-  finishSubmit = () => {
+  finishSubmit = () => { //submits the info
           
     this.setState(() => 
     {
@@ -99,12 +99,12 @@ export default class CourseDetails extends Component {
     this.props.history.push('/courses');
   }
 
-  handleUpdateCourseClick = (event) => {
+  handleUpdateCourseClick = (event) => { //handles the update
     const id = this.props.match.params.id;
     this.props.history.push(`/courses/${id}/update`);
   }
 
-  handleDeleteCourseClick = (event) => {
+  handleDeleteCourseClick = (event) => { //handles the delete
     const { context } = this.props;
 
     if(typeof(context) !== 'undefined') { 
@@ -112,7 +112,7 @@ export default class CourseDetails extends Component {
     }
   }
 
-  renderUpdateCourseButton() {
+  renderUpdateCourseButton() { //renders the update course button
     if(this.state.isAuthenticated && this.state.isAuthorized) {
       return (
         <>
@@ -125,7 +125,7 @@ export default class CourseDetails extends Component {
     }
   }
 
-  render() {
+  render() { //render the html to the page
     return (
       
         <div id="root">

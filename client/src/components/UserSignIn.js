@@ -18,7 +18,7 @@ export default class UserSignIn extends Component {
     }
   }
 
-  render() {
+  render() { //render the form
     const {
       username,
       password,

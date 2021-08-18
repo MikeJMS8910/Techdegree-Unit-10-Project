@@ -18,7 +18,7 @@ export default class Header extends React.PureComponent {
       return html;
     }
     
-    render() {
+    render() { //render the results
 
       return (
         <>

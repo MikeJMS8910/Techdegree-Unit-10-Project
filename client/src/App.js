@@ -15,7 +15,7 @@ import UserSignUp from './components/UserSignUp';
 import UserSignIn from './components/UserSignIn';
 import UserSignOut from './components/UserSignOut';
 import CreateCourse from './components/CreateCourse';
-import CourseDetails from './components/CourseDetails';
+import CourseDetails from './components/CourseDetail';
 import Updatecourse from './components/UpdateCourse';
 import ForbidenPage from './components/Forbidden';
 import ErrorPage from './components/error';
@@ -31,14 +31,14 @@ const PublicWithContext = withContext(Public);
 const CourseDetailsWithContext = withContext(CourseDetails);
 const UpdateCourseWithContext = withContext(Updatecourse);
 
-function App() {
+function App() { //this handles all of the routes
     return (
         <Router>            
             <HeaderWithContext />
 
             <Switch>
                 {/* default route, redirect to courses */} 
-                <Route exact path="/"> {<Redirect to="/courses" />} </Route>
+                <Route exact path="/" component={PublicWithContext} />
                 {/* SignIn Route */} 
                 <Route exact path="/signin" component={UserSignInWithContext} />
                 {/* SignUp Route*/} 

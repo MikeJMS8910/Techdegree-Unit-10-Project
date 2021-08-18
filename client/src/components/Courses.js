@@ -11,7 +11,7 @@ export default class Courses extends Component {
     
   }
 
-  updateCourses = (response) => {
+  updateCourses = (response) => { 
     this.htmlInsert = [];
     if(response !== null && typeof(response) !=='undefined') {
       response.forEach((element, index) => {
@@ -43,7 +43,7 @@ export default class Courses extends Component {
     }
   }
 
-  handleCreateCourseClick = (event) => {
+  handleCreateCourseClick = (event) => { //handles when the user clicks create course
     const { context } = this.props;
     if(context.authenticatedUser !== null) {
       this.props.history.push('/courses/create');

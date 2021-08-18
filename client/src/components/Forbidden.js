@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 //tells users when they do not have access
 export default class Forbidden extends Component {
 
-    render() { 
+    render() {  //renders the forbidden page
         return (
         <div className="bounds">
             <h1>Forbidden</h1>

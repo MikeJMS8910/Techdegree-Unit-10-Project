@@ -33,7 +33,7 @@ export default (props) => {
   );
 }
 
-function ErrorsDisplay({ errors }) {
+function ErrorsDisplay({ errors }) { //displays all the errors
   let errorsDisplay = null;
 
   if (errors.length) {
