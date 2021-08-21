@@ -34,7 +34,8 @@ export default class CreateCourse extends Component {
       if(error.response) {
         if(error.response.status >= 400) {
           this.setState(() => {
-            return { errors: [ ...error.response.data.errors ] };
+            console.log()
+            return "Error"; //{ errors: [ ...error.response.data.errors ]  }
           });
         }
       }

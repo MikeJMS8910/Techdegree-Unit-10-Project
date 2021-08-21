@@ -134,7 +134,6 @@ export default class UserSignUp extends Component {
       };
       
       context.actions.addNewUser(user, this.finishSubmit, this.handleError);
-      
     }
 
 
