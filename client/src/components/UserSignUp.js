@@ -1,3 +1,4 @@
+import UserSignIn from './UserSignIn';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Form from './Form';
@@ -134,9 +135,6 @@ export default class UserSignUp extends Component {
       };
       
       context.actions.addNewUser(user, this.finishSubmit, this.handleError);
-
-      window.location = "http://localhost:3000/signout"
-      alert("Now sign in with your new user account information.")
     }
 
 

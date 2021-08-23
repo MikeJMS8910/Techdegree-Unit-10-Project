@@ -116,8 +116,8 @@ export default class CourseDetail extends Component {
     if(this.state.isAuthenticated && this.state.isAuthorized) {
       return (
         <>
-          <a className="button" key="updateCourse" onClick={this.handleUpdateCourseClick}>Update Course</a>
-          <a className="button" key="deleteCourse" onClick={this.handleDeleteCourseClick}>Delete Course</a>
+          <a href="#" className="button" key="updateCourse" onClick={this.handleUpdateCourseClick}>Update Course</a>
+          <a href="#" className="button" key="deleteCourse" onClick={this.handleDeleteCourseClick}>Delete Course</a>
         </>
       )
     } else {

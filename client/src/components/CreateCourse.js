@@ -34,8 +34,8 @@ export default class CreateCourse extends Component {
       if(error.response) {
         if(error.response.status >= 400) {
           this.setState(() => {
-            console.log()
-            return "Error"; //{ errors: [ ...error.response.data.errors ]  }
+            console.log(error.response.data)
+            return { errors: error.response.data  }
           });
         }
       }
@@ -88,8 +88,8 @@ export default class CreateCourse extends Component {
       courseTitle,
       courseDescription,
       estimatedTime,
-      materialsNeeded,
-      errors
+      materialsNeeded
+      //errors
     } = this.state;
     
     return ( //return the html to the page
