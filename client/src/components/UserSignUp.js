@@ -1,4 +1,3 @@
-import UserSignIn from './UserSignIn';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Form from './Form';
@@ -16,6 +15,7 @@ export default class UserSignUp extends Component {
     emailAddress: '',
     password: '',
     errors: [],
+    Id: ''
   }
 
   render() {
@@ -87,24 +87,27 @@ export default class UserSignUp extends Component {
     });
   }
 
-  finishSubmit = (user) => { //finished submitting the user info
-    
+  finishSubmit = (user) => { //this signs the user in and then calls the finalizesignup
+
     if(user !== null && typeof(user) !== 'undefined') {
       const { context } = this.props;
+      console.log(user)
       context.actions.signIn(user, this.finalizeSignUp, this.handleError);
       
     }
   }
 
-  finalizeSignUp = (user) => {
+  finalizeSignUp = (user) => { //when this is triggered it will make sure that the user is defined and then run the finalizeSignIn in the context.js to authenticate the user and add the cookie value
+
     if(user !== null && typeof(user) !== 'undefined') {
       const { context } = this.props;
+      console.log(user)
       context.actions.finalizeSignIn(user);
       this.props.history.push('/'); 
     }
   }
 
-  handleError = (error) => { //error handling
+  handleError = (error) => { //error handling, will tell the error if there are any errors with signing up
     if(error.isAxiosError) {
       if(typeof (error.response) != 'undefined') {
         if(error.response.status === 400) {
@@ -117,6 +120,7 @@ export default class UserSignUp extends Component {
     }
   }
 
+  //when the information is submitted it will set all of the inputed values for the users
   submit = async () => {
       const { context } = this.props;
       const {
@@ -124,14 +128,15 @@ export default class UserSignUp extends Component {
         lastName,
         emailAddress,
         password,
+        Id
       } = this.state;
 
-      // Create user
       const user = {
         firstName,
         lastName,
         emailAddress,
         password,
+        Id
       };
       
       context.actions.addNewUser(user, this.finishSubmit, this.handleError);

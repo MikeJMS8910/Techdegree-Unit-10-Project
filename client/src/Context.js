@@ -61,7 +61,8 @@ export class Provider extends Component {
     }
 
     finalizeSignIn = (user) => {
-      
+
+      console.log(user.password)
         this.setState(() => {
           return {
             authenticatedUser: {firstName:user.first_name, lastName:user.last_name, username: user.username, password:user.password, userId: user.Id }
@@ -71,11 +72,15 @@ export class Provider extends Component {
           maxAge: 604800
         };
         
-        cookies.set('authenticatedUser', this.state.authenticatedUser, cookieOptions);    
+        cookies.set('authenticatedUser', this.state.authenticatedUser, cookieOptions);
+        console.log("moving to home route")
+        window.location = "http://localhost:3000"
     }
     
     signIn = async (user, finishSubmit, handleError) => {
-          
+
+      console.log(user.password)
+
           if (user !== null && typeof(user) !== 'undefined') {
             
             AxiosOptions.auth.username = user.emailAddress;
@@ -85,6 +90,7 @@ export class Provider extends Component {
 
             await axios(AxiosOptions).then(response => {
               if (response.status === 200) {
+                response.data.password = user.password
                 finishSubmit(response.data);
               }
             }).catch(error => {
@@ -95,6 +101,9 @@ export class Provider extends Component {
       }
 
     addNewUser = async (user, finishSubmit, handleError) => {
+
+        console.log(user.password)
+
         if(user !== null && typeof(user) !== 'undefined') {        
 
           AxiosOptions.auth = {}

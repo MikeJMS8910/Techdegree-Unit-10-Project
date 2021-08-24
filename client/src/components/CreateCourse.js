@@ -12,7 +12,7 @@ export default class CreateCourse extends Component {
     errors: []
   }
 
-  finishSubmit = () => { //one it is submited
+  finishSubmit = () => { //refreshes the state and puts the user back to the course page
     
     this.setState(() => 
     {
@@ -48,7 +48,7 @@ export default class CreateCourse extends Component {
     }
   }
 
-  handleSubmit = async (event) => { //handles submit
+  handleSubmit = async (event) => { //adds all of the information for the new course
 
     const { context } = this.props; 
    

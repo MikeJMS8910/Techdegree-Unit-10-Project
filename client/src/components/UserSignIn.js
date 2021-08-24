@@ -12,6 +12,7 @@ export default class UserSignIn extends Component {
     errors: [],
   }
 
+  //checks if the user is already authenticated
   componentWillMount() {
     if(this.state.isAuthenticated) {
       this.props.history.push('/');
@@ -72,7 +73,7 @@ export default class UserSignIn extends Component {
     });
   }
 
-  handleError = (error) => { //error handling
+  handleError = (error) => { //this is the error handling. It tests server errors and validation errors
     if(error.isAxiosError) {
       if(typeof(error.response) !== 'undefined') {
         if(error.response.status === 401) {
@@ -94,7 +95,7 @@ export default class UserSignIn extends Component {
     }
   }
 
-  finishSubmit = (response) => { //once done
+  finishSubmit = (response) => { //sets the state(authenticates the user with email and password and sets isauthenticated to true)
     
     const { username, password } = this.state;
     const { context } = this.props;    
@@ -114,7 +115,7 @@ export default class UserSignIn extends Component {
       
   }
 
-  submit = async ()=> { //handle submitting
+  submit = async ()=> { //once submitted it validates form
     const { context } = this.props;
     const { username, password } = this.state;
 

@@ -27,7 +27,7 @@ export default class UpdateCourse extends Component {
     }
   }
 
-  updateCourseDetails = (response) => {
+  updateCourseDetails = (response) => { //changes all of the information in the previous course to the new information
 
     const { context } = this.props;
 
@@ -56,7 +56,7 @@ export default class UpdateCourse extends Component {
     }
   }
 
-  renderMaterialsList = () => {
+  renderMaterialsList = () => { //renders the course materials list
     let list = [];
     this.state.course_materials.forEach((element, index) => {
       list.push(
@@ -71,7 +71,7 @@ export default class UpdateCourse extends Component {
     )
   }
 
-  handleError = (error) => { //error handling
+  handleError = (error) => { //error handling(server and validation)
     if(error.isAxiosError) {
       if(typeof(error.response) !== 'undefined') {
         if(error.response.status > 399 && error.response.status < 500) {
@@ -108,7 +108,7 @@ export default class UpdateCourse extends Component {
       this.props.history.push(`/courses/${this.props.match.params.id}`);
   }
 
-  handleSubmit = async (event) => { //handles the submit
+  handleSubmit = async (event) => { //gets the new values that are submitted
 
     const { context } = this.props;
     const id = this.props.match.params.id;    

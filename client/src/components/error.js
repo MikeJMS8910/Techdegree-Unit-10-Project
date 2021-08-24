@@ -6,7 +6,7 @@ export default class Forbidden extends Component {
 
     render() {  //renders the error
         return (
-        <div class="bounds">
+        <div className="bounds">
             <h1>Internal Server Error</h1>
             <p>{this.props.errors}</p>
             <p>
