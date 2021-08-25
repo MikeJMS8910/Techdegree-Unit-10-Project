@@ -23,7 +23,7 @@ export default class Courses extends Component {
                 </a></div>
           );
       });
-      this.setState({});
+      this.setState({courses: response});
     }
   }
 
