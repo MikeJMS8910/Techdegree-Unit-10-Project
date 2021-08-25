@@ -12,6 +12,7 @@ export default class Courses extends Component {
   }
 
   updateCourses = (response) => {  //when the user wants to update a course 
+    console.log(response)
     this.htmlInsert = [];
     if(response !== null && typeof(response) !=='undefined') {
       response.forEach((element, index) => {
